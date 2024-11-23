@@ -11,11 +11,38 @@
     </style>
 </head>
 <body>
-
     <script>
         function getComputerChoice(){
-            console
-        }
+            const randomNum = Math.random();
+
+            if (randomNum <= 0.33) {
+                return "Rock";
+            } else if (randomNum <= 0.66) {
+                return "Paper";
+            } else {
+                return "Scissor";
+            }
+        };
+
+        function getHumanChoice(){
+            const humanChoices = prompt("Please choose between ROCK, PAPER OR SCISSOR").toUpperCase();
+
+            if (humanChoices === "ROCK") {
+                return "Rock";
+            } else if (humanChoices === "PAPER") {
+                return "Paper";
+            } else if (humanChoices === "SCISSOR") {
+                return "Scissor"
+            } else {
+                alert("Please enter correctly");
+                location.reload();
+            }
+
+        };
+
+
+        console.log("HUMAN Chooses: " + getHumanChoice())
+        console.log("CPU Chooses: " + getComputerChoice())
     </script>
 </body>
 </html>
