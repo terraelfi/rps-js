@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,15 @@
         }
     </style>
 </head>
+
 <body>
     <script>
-        function getComputerChoice(){
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+
+        function getComputerChoice() {
             const randomNum = Math.random();
 
             if (randomNum <= 0.33) {
@@ -24,25 +31,53 @@
             }
         };
 
-        function getHumanChoice(){
-            const humanChoices = prompt("Please choose between ROCK, PAPER OR SCISSOR").toUpperCase();
-
-            if (humanChoices === "ROCK") {
-                return "Rock";
-            } else if (humanChoices === "PAPER") {
-                return "Paper";
-            } else if (humanChoices === "SCISSOR") {
-                return "Scissor"
-            } else {
-                alert("Please enter correctly");
-                location.reload();
+        function getHumanChoice() {
+            let playerChoice
+            
+            while (true) {
+                playerChoice = prompt("Please type between ROCK, PAPER OR SCISSOR").toUpperCase();
+    
+                if (playerChoice === "ROCK") {
+                    return "Rock";
+                } else if (playerChoice === "PAPER") {
+                    return "Paper";
+                } else if (playerChoice === "SCISSOR") {
+                    return "Scissor"
+                } else {
+                    alert("Invalid input. Please type Rock, Paper, or Scissor.");
+                }
             }
+
 
         };
 
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice === computerChoice) {
+                return "DRAW!"
+            } else if (humanChoice === "Rock" && computerChoice === "Paper") {
+                return "CPU Wins! Because Paper beats Rock"
+            } else if (humanChoice === "Rock" && computerChoice === "Scissor") {
+                return "Player Wins! Because Rock beats Scissor"
+            } else if (humanChoice === "Scissor" && computerChoice === "Paper") {
+                return "Player Wins! Because Scissor beats Paper"
+            } else if (humanChoice === "Scissor" && computerChoice === "Rock") {
+                return "CPU Wins! Because Rock beats Scissor"
+            } else if (humanChoice === "Paper" && computerChoice === "Rock") {
+                return "Player Wins! Because Paper beats Rock"
+            } else if (humanChoice === "Paper" && computerChoice === "Scissor") {
+                return "CPU Wins! Because Scissor beats Paper"
+            }
+        };
 
-        console.log("HUMAN Chooses: " + getHumanChoice())
-        console.log("CPU Chooses: " + getComputerChoice())
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        
+
+        // console.log("HUMAN Chooses: " + getHumanChoice())
+        // console.log("CPU Chooses: " + getComputerChoice())
+        console.log("Player picked: "+ humanSelection + "\nCPU picked: " + computerSelection + "\nResult: " + playRound(humanSelection, computerSelection))
     </script>
 </body>
+
 </html>
