@@ -34,22 +34,16 @@ function playRound(humanChoice, computerChoice) {
         return "DRAW!"
     } else if (humanChoice === "Rock" && computerChoice === "Paper") {
         return "CPU Wins! Because Paper beats Rock"
-        return computerScore++;
     } else if (humanChoice === "Rock" && computerChoice === "Scissor") {
         return "Player Wins! Because Rock beats Scissor"
-        return humanScore++;
     } else if (humanChoice === "Scissor" && computerChoice === "Paper") {
         return "Player Wins! Because Scissor beats Paper"
-        return humanScore++;
     } else if (humanChoice === "Scissor" && computerChoice === "Rock") {
         return "CPU Wins! Because Rock beats Scissor"
-        return computerScore++;
     } else if (humanChoice === "Paper" && computerChoice === "Rock") {
         return "Player Wins! Because Paper beats Rock"
-        return humanScore++;
     } else if (humanChoice === "Paper" && computerChoice === "Scissor") {
         return "CPU Wins! Because Scissor beats Paper"
-        return computerScore++;
     }
 };
 
